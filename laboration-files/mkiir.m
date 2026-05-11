@@ -195,7 +195,7 @@ function mkiir
 
         h = polyval(num, exp(1j*2*pi*f)) ./ polyval(den, exp(1j*2*pi*f));
         a = 20*log10(abs(h));
-        i = impz(num, den, 200);
+        % i = impz(num, den, 200);
         
         set(states.plot.response, 'XData', f, 'YData', a);
         set(states.plot.poles1, 'XData', real(poles), 'YData', imag(poles));
@@ -263,7 +263,10 @@ function mkiir
         s = load(fullfile(path, file));
         
         if all(isfield(s, {'b', 'a'}))
-            [zeros, poles, gain] = tf2zpk(s.b, s.a);
+            % [zeros, poles, gain] = tf2zpk(s.b, s.a);
+            zeros = roots(s.b);
+            poles = roots(s.a);
+            gain = s.b(1) / s.a(1);
         elseif all(isfield(s, {'z', 'p', 'k'}))
             zeros = s.z;
             poles = s.p;

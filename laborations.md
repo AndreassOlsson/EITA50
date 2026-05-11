@@ -39,7 +39,8 @@ It comes from the real world. As the lab text says, the analog electrical signal
 Yes, the signal contains noise. The low-frequency noise is caused by the movement of the patient, such as breathing
 
 - Include the plot of the raw signal.
-  ![Raw signal](./imgs/lab1/ekg_raw.jpg)
+
+![Raw signal](./imgs/lab1/ekg_raw.jpg)
 
 #### Exercise 2
 
@@ -104,31 +105,67 @@ Read the entire lab text first. Then work yourself through the lab text again, p
 #### Preparation Tasks
 
 - Match the plots and give short motivations.
+
+TODO
+
 - Scan and include your plots.
+
+TODO
 
 #### Exercise 1
 
 - Explain what happens when you move the pole and zero around.
+
+TODO
+
 - Explain the relationship between frequency response and angle and radius.
+
+TODO
+
 - Include one or two example plots.
+
+![Zeros low](./imgs/lab2/zeros_low.png)
+![Poles low](./imgs/lab2/poles_low.png)
+![Poles high](./imgs/lab2/poles_high.png)
+
+![Lowpass IIR filter](./imgs/lab2/iir_filter_lowpass.png)
 
 #### Exercise 2
 
 - Use `mkiir` to design a good low pass filter.
 - Include the plot.
+
+![Lowpass IIR filter](./imgs/lab2/iir_filter_lowpass.png)
+
 - _Note:_ You may do the optional exercises, but do not include them in the lab report.
 
 #### Exercise 3
 
 - Listen to the signals and explain how the disturbances sound.
+
+TODO
+
 - Include the plots of the spectra and explain how you can see the disturbances.
+
+TODO
 
 #### Exercise 4
 
 - Design a notch filter to remove the disturbances.
+
+TODO
+
 - Does the filter work as expected?
+
+TODO
+
 - How can you see it in the spectra?
+
+TODO
+
 - How does the signal sound after being filtered?
+
+TODO
 
 ---
 
