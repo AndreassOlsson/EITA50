@@ -106,9 +106,17 @@ Read the entire lab text first. Then work yourself through the lab text again, p
 
 - Match the plots and give short motivations.
 
-TODO
+A -> 4, Because it lacks zeros to force the magnitude down to zero and its the only plot not reaching zero magnitude. Also, it has peaks around 0.125 normalized frequency (from $\omega = \pi/4$) which matches the peaks in the plot.
+
+B -> 3, Because it has the same poles as A, but it also has zeros at the unit circle at f = 0 and f = 0.5 which forces the magnitude down to zero at those frequencies, which plot 3 clearly does.
+
+C -> 1, Because the poles at normalized frequencies 0.25 which pushes the magnitude to 1 (and conjugate 0.75) as well as the zeros at around 0.3 which results in 0 magnitude in the corresponding plot.
+
+D -> 2, Because this is a low pass filter where the lower frequencies of around 0 to 0.15 pass through whereas the magnitude quickly drops for larger frequencies, terminating at 0 for 0.5 (highest observable sample frequency according to nyqvist )
 
 - Scan and include your plots.
+
+![Zeros low](./imgs/lab2/prep.png)
 
 TODO
 
@@ -116,11 +124,11 @@ TODO
 
 - Explain what happens when you move the pole and zero around.
 
-TODO
+Moving the pole closer to the unit circle creates a sharp resonant peak, the closer to r=1 the larger the peak. The opposite hols for zeros, but creating a dip instead. Hoving around clock-wise or counter-clock-wise affects where on the x axis the peak or dip happens because that decides the normalized frequency via $f = \sigma/2\pi$.
 
 - Explain the relationship between frequency response and angle and radius.
 
-TODO
+The angle dictates the placement and the radius dictades the bandwidth (how spiky).
 
 - Include one or two example plots.
 
@@ -143,29 +151,44 @@ TODO
 
 - Listen to the signals and explain how the disturbances sound.
 
-TODO
+Multiple disturbances: 1. Grainy and noisy 2. High frequency beep
 
 - Include the plots of the spectra and explain how you can see the disturbances.
 
-TODO
+![Lovefool spectra](imgs/lab2/lovefool_spectra.jpg)
 
 #### Exercise 4
 
 - Design a notch filter to remove the disturbances.
 
-TODO
+```matlab
+freq = [0.1 0.66 1.25 2.65] * 1000; % kHz
+
+r = 0.95;
+z = exp(-1j*2*pi*[freq , -freq]/fs);
+p = exp(-1j*2*pi*[freq , -freq]/fs)*r;
+
+b = poly(z);
+a = poly(p);
+
+y = filter(b, a, x);
+```
+
+![Notch filter](imgs/lab2/sound_notch_filter.png)
 
 - Does the filter work as expected?
 
-TODO
+Yes
 
 - How can you see it in the spectra?
 
-TODO
+![Spectra after filter](imgs/lab2/spectral_after_filter.jpg)
+
+The sharp peaks have died down.
 
 - How does the signal sound after being filtered?
 
-TODO
+Better, but still bad.
 
 ---
 
