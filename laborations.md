@@ -201,32 +201,73 @@ Read the entire lab text first. Then work yourself through the lab text again, p
 - Look at the signal in Matlab.
 - Apply the moving average filter.
 - What effect does it have on the signal?
+
+It smears/blurs the signal. It removes the sharp edges.
+
 - What kind of filter is it?
+
+Low-pass.
+
+![alt text](imgs/lab3/1D-moving-average.png)
 
 #### Exercise 2
 
 - Apply the modified filter.
 - What effect does it have on the signal?
+
+It highlights change. It removes the constant background level (DC component) and slow moving trends. Instead, it lifts fast changes, spikes and highfrequency changes in the signal.
+
 - What kind of filter is it?
+
+High-pass
+
+![alt text](imgs/lab3/1D-moving-average2.png)
 
 #### Exercise 3
 
 - What type are the two filters?
+
+The left one, h, is as said a low pass filter. We can see that by the filter design which is the same low value for all of the filter points. In its corresponding frequency response we see that low frequencies have the highest amplitude and higher frequencies (from above 0.2 normalized frequency and upwards) are muted.
+
+The right one, g, is as said a high pass filter or an edge detector. It dampens the low frequencies and amplifies the high frequencies.
+
+![alt text](imgs/lab3/1D-filters-frequency-response.png)
 
 #### Exercise 4
 
 - Look at the image in Matlab.
 - Apply the two-dimensional moving average filter and look at the picture.
 - What type of filter is this?
+
+Its a 2D-low pass filter. Aka blur-filter or similar.
+
 - What effect does it have on the picture?
+
+It makes it blurry, and edges harder to detect.
+
+![alt text](imgs/lab3/2D-moving-average.png)
 
 #### Exercise 5
 
 - Apply the filter to the picture and look at it.
 - What type of filter is this?
+
+Its a 2D-high-pass filter which is aka edge detector.
+
 - What aspects of the picture does this filter bring out?
+
+It brings out edges in the image.
+
 - For what type of applications can edge detection be useful?
+
+Image recognition in ML. Either we as humans can apply edge filters manually or the AI can construct them during training because it happens to be a useful step in computer vision.
+
+![alt text](imgs/lab3/2D-edge-filter.png)
 
 #### Exercise 6
 
 - What type are the two filters?
+
+2D high pass and 2D low pass.
+
+![alt text](imgs/lab3/2D-filters-frequency-response.png)
